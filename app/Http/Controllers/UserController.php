@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Http\Request;
+use App\Authorizable;
+use App\Permission;
+use App\Role;
 class UserController extends Controller
 {
+    use Authorizable;
     /**
      * Display a listing of the users
      *
@@ -26,7 +30,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::pluck('name','id');
+        return view('users.create',compact('roles'));
     }
 
     /**
@@ -38,9 +43,18 @@ class UserController extends Controller
      */
     public function store(UserRequest $request, User $model)
     {
-        $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
+//        hash password
+        $request->merge(['password' => Hash::make($request->get('password'))]);
+        if($user = User::create($request->except('roles','permissions'))){
+            $this->syncPermissions($request,$user);
+            return redirect()->route('users.index')->withStatus(__('User successfully created.'));
+        }
+        else{
+            return redirect()->route('users.index')->withStatus(__('Unable to create users.'));
+        }
+//        $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
 
-        return redirect()->route('user.index')->withStatus(__('User successfully created.'));
+//        return redirect()->route('users.index')->withStatus(__('User successfully created.'));
     }
 
     /**
@@ -51,7 +65,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $roles = Role::pluck('name','id');
+        $permissions = Permission::all('name','id');
+        return view('users.edit', compact('user','roles','permissions'));
     }
 
     /**
@@ -64,12 +80,16 @@ class UserController extends Controller
     public function update(UserRequest $request, User  $user)
     {
         $hasPassword = $request->get('password');
-        $user->update(
-            $request->merge(['password' => Hash::make($request->get('password'))])
-                ->except([$hasPassword ? '' : 'password']
-        ));
-
-        return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
+//        $user->update(
+//            $request->merge(['password' => Hash::make($request->get('password'))])
+//                ->except([$hasPassword ? '' : 'password']
+//        ));
+        $user->fill($request->except('roles','permissions','password'));
+        if($hasPassword){
+            $user->password = Hash::make($hasPassword);
+        }
+        $this->syncPermissions($request,$user);
+        return redirect()->route('users.index')->withStatus(__('User successfully updated.'));
     }
 
     /**
@@ -80,8 +100,31 @@ class UserController extends Controller
      */
     public function destroy(User  $user)
     {
+
         $user->delete();
 
-        return redirect()->route('user.index')->withStatus(__('User successfully deleted.'));
+        return redirect()->route('users.index')->withStatus(__('User successfully deleted.'));
+    }
+
+    private function syncPermissions(Request $request, $user)
+    {
+        // Get the submitted roles
+        $roles = $request->get('roles', []);
+        $permissions = $request->get('permissions', []);
+
+        // Get the roles
+        $roles = Role::find($roles);
+
+        // check for current role changes
+        if( ! $user->hasAllRoles( $roles ) ) {
+            // reset all direct permissions for user
+            $user->permissions()->sync([]);
+        } else {
+            // handle permissions
+            $user->syncPermissions($permissions);
+        }
+
+        $user->syncRoles($roles);
+        return $user;
     }
 }
