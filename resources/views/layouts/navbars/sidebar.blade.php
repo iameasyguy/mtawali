@@ -40,21 +40,25 @@
               </a>
             </li>
                   @endcan
+              @can('add_roles','edit_roles', 'delete_roles')
               <li class="nav-item{{ $activePage == 'roles-management' ? ' active' : '' }}">
                   <a class="nav-link" href="{{ route('roles.index') }}">
                       <span class="sidebar-mini"> RM </span>
                       <span class="sidebar-normal"> {{ __('Roles & Permissions') }} </span>
                   </a>
               </li>
+                  @endcan
           </ul>
         </div>
       </li>
-{{--      <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">--}}
-{{--        <a class="nav-link" href="{{ route('table') }}">--}}
-{{--          <i class="material-icons">content_paste</i>--}}
-{{--            <p>{{ __('Table List') }}</p>--}}
-{{--        </a>--}}
-{{--      </li>--}}
+        @can('add_clients','edit_clients', 'delete_clients')
+      <li class="nav-item{{ $activePage == 'client-management' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('clients.index') }}">
+          <i class="material-icons">assignment_ind</i>
+            <p>{{ __('Clients Management') }}</p>
+        </a>
+      </li>
+        @endcan
 {{--      <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">--}}
 {{--        <a class="nav-link" href="{{ route('typography') }}">--}}
 {{--          <i class="material-icons">library_books</i>--}}

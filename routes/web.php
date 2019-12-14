@@ -21,10 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::resource('clients', 'ClientController');
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+	Route::get('clients/sub_counties/{county}','ClientController@getcounty');
 });
 
