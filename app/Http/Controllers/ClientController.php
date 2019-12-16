@@ -17,7 +17,7 @@ class ClientController extends Controller
      */
     public function index(Client $model)
     {
-       return view('modules.clients.index',['clients' => $model->paginate(15)]);
+       return view('modules.clients.index',['clients' => $model->paginate(10)]);
     }
 
     /**

@@ -24,7 +24,7 @@
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse show" id="laravelExample">
+        <div class="collapse " id="laravelExample">
           <ul class="nav">
             <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('profile.edit') }}">
@@ -59,42 +59,37 @@
         </a>
       </li>
         @endcan
-{{--      <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">--}}
-{{--        <a class="nav-link" href="{{ route('typography') }}">--}}
-{{--          <i class="material-icons">library_books</i>--}}
-{{--            <p>{{ __('Typography') }}</p>--}}
-{{--        </a>--}}
-{{--      </li>--}}
-{{--      <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">--}}
-{{--        <a class="nav-link" href="{{ route('icons') }}">--}}
-{{--          <i class="material-icons">bubble_chart</i>--}}
-{{--          <p>{{ __('Icons') }}</p>--}}
-{{--        </a>--}}
-{{--      </li>--}}
-{{--      <li class="nav-item{{ $activePage == 'map' ? ' active' : '' }}">--}}
-{{--        <a class="nav-link" href="{{ route('map') }}">--}}
-{{--          <i class="material-icons">location_ons</i>--}}
-{{--            <p>{{ __('Maps') }}</p>--}}
-{{--        </a>--}}
-{{--      </li>--}}
-{{--      <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">--}}
-{{--        <a class="nav-link" href="{{ route('notifications') }}">--}}
-{{--          <i class="material-icons">notifications</i>--}}
-{{--          <p>{{ __('Notifications') }}</p>--}}
-{{--        </a>--}}
-{{--      </li>--}}
-{{--      <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">--}}
-{{--        <a class="nav-link" href="{{ route('language') }}">--}}
-{{--          <i class="material-icons">language</i>--}}
-{{--          <p>{{ __('RTL Support') }}</p>--}}
-{{--        </a>--}}
-{{--      </li>--}}
-{{--      <li class="nav-item active-pro{{ $activePage == 'upgrade' ? ' active' : '' }}">--}}
-{{--        <a class="nav-link" href="{{ route('upgrade') }}">--}}
-{{--          <i class="material-icons">unarchive</i>--}}
-{{--          <p>{{ __('Upgrade to PRO') }}</p>--}}
-{{--        </a>--}}
-{{--      </li>--}}
+
+        <li class="nav-item {{ ($activePage == 'personnel' || $activePage == 'personnel-management') ? ' active' : '' }}">
+            <a class="nav-link" data-toggle="collapse" href="#personnel" aria-expanded="true">
+                <i class="material-icons">contacts</i>
+                <p>3<sup>rd</sup> Parties Mngt
+                    <b class="caret"></b>
+                </p>
+            </a>
+            <div class="collapse " id="personnel">
+                <ul class="nav">
+                    @can('add_installers','edit_installers', 'delete_installers')
+                    <li class="nav-item{{ $activePage == 'pi-management' ? ' active' : '' }}">
+                        <a class="nav-link" href="{{ route('installers.index') }}">
+                            <span class="sidebar-mini"> PI </span>
+                            <span class="sidebar-normal">{{ __('Project Installers') }} </span>
+                        </a>
+                    </li>
+                    @endcan
+                    @can('add_personels','edit_personels', 'delete_personels')
+                        <li class="nav-item{{ $activePage == 'personnel-management' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{ route('personels.index') }}">
+                                <span class="sidebar-mini"> 3PM </span>
+                                <span class="sidebar-normal"> {{ __('Personnel Management') }} </span>
+                            </a>
+                        </li>
+                    @endcan
+
+                </ul>
+            </div>
+        </li>
+
     </ul>
   </div>
 </div>
