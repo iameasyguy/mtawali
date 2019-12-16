@@ -117,23 +117,17 @@ class ClientController extends Controller
             'area'=>'required|min:10'
 
         );
-        $validator = Validator::make($request->all(), $rules);
 
 
-        if ($validator->fails())
-        {
-            return response()->json(array(
-                'success' => false,
-                'errors' => $validator->getMessageBag()->toArray()
+        $this->validate($request,$rules);
 
-            ), 400); // 400 being the HTTP code for an invalid request.
-        }
+
 
 
         $data = request()->except(['_token','_method']);
         $data['username']=auth()->user()->name;
         Client::whereId($client->id)->update($data);
-        return response()->json(array('success' => true,'message' => $client), 200);
+        return redirect()->route('clients.index')->withStatus(__('Client successfully updated.'));
     }
 
     /**

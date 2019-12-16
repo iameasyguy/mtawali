@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="" id="client_form" autocomplete="off"
+                    <form method="post" id="client_form" action="{{route('clients.update',$client)}}" autocomplete="off"
                           class="form-horizontal">
                         @csrf
                         @method('put')
@@ -15,7 +15,7 @@
 
 
 
-                                <h4 class="card-title">{{ __('Add Client') }}</h4>
+                                <h4 class="card-title">{{ __('Edit Client') }}</h4>
                                 <p class="card-category"></p>
                             </div>
                             <div class="card-body ">
@@ -98,7 +98,7 @@
                                         <div class="form-group{{ $errors->has('county') ? ' has-danger' : '' }}">
                                             <select name="county" id="county" class="form-control input-lg dynamic"
                                                     data-dependent="county">
-                                                <option value="">{{$client->county}}</option>
+                                                <option value="{{$client->county}}">{{$client->county}}</option>
                                                 @foreach ($counties as $key => $value)
                                                     <option value="{{ $value }}">{{ $value }}</option>
                                                 @endforeach
@@ -112,7 +112,7 @@
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('sub_county') ? ' has-danger' : '' }}">
                                             <select name="sub_county" id="sub_county" class="form-control input-lg dynamic" data-dependent="sub_county">
-                                                <option value="">{{$client->sub_county}}</option>
+                                                <option value="{{$client->sub_county}}">{{$client->sub_county}}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -132,10 +132,11 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" id="add_client" class="btn btn-primary">{{ __('Update Client') }}</button>
+                                <button type="submit"  class="btn btn-primary">{{ __('Update Client') }}</button>
                             </div>
                         </div>
                     </form>
@@ -143,7 +144,10 @@
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
     <script>
         jQuery(document).ready(function ()
         {
@@ -158,7 +162,7 @@
                         dataType : "json",
                         success:function(data)
                         {
-                            console.log(data);
+                            // console.log(data);
                             jQuery('select[name="sub_county"]').empty();
                             jQuery.each(data, function(key,value){
                                 $('select[name="sub_county"]').append('<option value="'+ key +'">'+ value +'</option>');
@@ -171,43 +175,10 @@
                     $('select[name="sub_county"]').empty();
                 }
             });
-        });
-
-        $("#add_client").click(function (e) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            e.preventDefault();
-            var formData = {
-                name: jQuery('#input-name').val(),
-                email: jQuery('#input-email').val(),
-                contact_person:jQuery('#input-contact_person').val(),
-                phone:jQuery('#input-phone').val(),
-                county:jQuery('#county').val(),
-                sub_county:jQuery('#sub_county').val(),
-                area:jQuery('#input-area').val(),
-            };
-
-            var type = "PUT";
-            var ajaxurl = '{{route('clients.update',$client)}}';
-            $.ajax({
-                type: type,
-                url: ajaxurl,
-                data: formData,
-                success: function (data) {
-                    jQuery.each(data.errors, function(key, value){
-                        jQuery('.alert-danger').show();
-                        jQuery('.alert-danger').append('<p>'+value+'</p>');
-                        console.log(value);
-                    });
-                    window.location.href ='{{route('clients.index')}}';
-
-                }
-            });
 
         });
+
+
 
     </script>
 @endsection

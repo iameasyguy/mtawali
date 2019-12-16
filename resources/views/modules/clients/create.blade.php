@@ -171,43 +171,45 @@
                     $('select[name="sub_county"]').empty();
                 }
             });
+
+            $("#add_client").click(function (e) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                e.preventDefault();
+                var formData = {
+                    name: jQuery('#input-name').val(),
+                    email: jQuery('#input-email').val(),
+                    contact_person:jQuery('#input-contact_person').val(),
+                    phone:jQuery('#input-phone').val(),
+                    county:jQuery('#county').val(),
+                    sub_county:jQuery('#sub_county').val(),
+                    area:jQuery('#input-area').val(),
+                };
+
+                var type = "POST";
+                var ajaxurl = '{{route('clients.store')}}';
+                $.ajax({
+                    type: type,
+                    url: ajaxurl,
+                    data: formData,
+                    success: function (data) {
+                        jQuery.each(data.errors, function(key, value){
+                            jQuery('.alert-danger').show();
+                            jQuery('.alert-danger').append('<p>'+value+'</p>');
+                            console.log(value);
+                        });
+                        window.location.href ='{{route('clients.index')}}';
+
+                    }
+                });
+
+            });
         });
 
-        $("#add_client").click(function (e) {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            e.preventDefault();
-            var formData = {
-                name: jQuery('#input-name').val(),
-                email: jQuery('#input-email').val(),
-                contact_person:jQuery('#input-contact_person').val(),
-                phone:jQuery('#input-phone').val(),
-                county:jQuery('#county').val(),
-                sub_county:jQuery('#sub_county').val(),
-                area:jQuery('#input-area').val(),
-            };
 
-            var type = "POST";
-            var ajaxurl = '{{route('clients.store')}}';
-            $.ajax({
-                type: type,
-                url: ajaxurl,
-                data: formData,
-                success: function (data) {
-                    jQuery.each(data.errors, function(key, value){
-                        jQuery('.alert-danger').show();
-                        jQuery('.alert-danger').append('<p>'+value+'</p>');
-                        console.log(value);
-                    });
-                    window.location.href ='{{route('clients.index')}}';
-
-                }
-            });
-
-        });
 
     </script>
 @endsection
