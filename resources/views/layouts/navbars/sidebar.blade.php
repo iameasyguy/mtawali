@@ -89,7 +89,14 @@
                 </ul>
             </div>
         </li>
-
+        @can('add_projects','edit_projects', 'delete_projects')
+            <li class="nav-item{{ $activePage == 'project-management' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('projects.index') }}">
+                    <i class="material-icons">assignment_ind</i>
+                    <p>{{ __('Project Management') }}</p>
+                </a>
+            </li>
+        @endcan
     </ul>
   </div>
 </div>

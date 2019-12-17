@@ -26,9 +26,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('roles', 'RoleController');
     Route::resource('installers', 'InstallerController');
     Route::resource('personels', 'PersonelController');
+    Route::resource('projects', 'ProjectController');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::get('clients/sub_counties/{county}','ClientController@getcounty');
+    Route::get('projects/area/{client}','ProjectController@getarea');
 });
 

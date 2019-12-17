@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use DB;
 use Illuminate\Http\Request;
-
+use App\Client;
 class ProjectController extends Controller
 {
     /**
@@ -24,7 +25,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $clients = DB::table('clients')->groupBy('name')
+            ->pluck('name','id');
+        return view('modules.projects.create',compact('clients'));
     }
 
     /**
@@ -81,5 +84,10 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    public function getarea($client){
+        $area = DB::table('clients')->where('name',$client)->pluck("area","area");;
+        return json_encode($area);
     }
 }
