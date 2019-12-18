@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use DB;
 use Illuminate\Http\Request;
-use App\Client;
+use App\Personel;
 class ProjectController extends Controller
 {
     /**
@@ -27,7 +27,8 @@ class ProjectController extends Controller
     {
         $clients = DB::table('clients')->groupBy('name')
             ->pluck('name','id');
-        return view('modules.projects.create',compact('clients'));
+        $personnels= Personel::pluck('name','id');
+        return view('modules.projects.create',compact('clients','personnels'));
     }
 
     /**
@@ -38,7 +39,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return response()->json(array('success' => true,'message' =>$request->all()), 200);
     }
 
     /**
