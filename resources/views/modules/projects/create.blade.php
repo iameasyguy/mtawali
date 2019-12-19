@@ -73,11 +73,28 @@
                                     </div>
                                 </div>
 
+<<<<<<< HEAD
                             <div class="row"></div>
+=======
+                                {{--<div class="row">--}}
+                                    {{--<label class="col-sm-2 col-form-label">{{ __('Personnel on Site') }}</label>--}}
+                                    {{--<div class="col-sm-7">--}}
+                                        {{--<div class="form-group{{ $errors->has('personnel') ? ' has-danger' : '' }}">--}}
+                                            {{--<select multiple name="personnel[]" id="personnel" class="form-control input-lg dynamic"--}}
+                                                    {{--data-dependent="personnel">--}}
+                                                {{--<option value="">Select personnel</option>--}}
+                                                {{--@foreach ($personnels as $key => $value)--}}
+                                                    {{--<option value="{{ $key }}">{{ $value }}</option>--}}
+                                                {{--@endforeach--}}
+                                            {{--</select>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+>>>>>>> 4d0e01ba6fb0f7974b1b9495db6f07ac8be652f9
                             </div>
 
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" id="add_client" class="btn btn-primary">{{ __('Add Installer') }}</button>
+                                <button type="submit" id="add_project" class="btn btn-primary">{{ __('Add Installer') }}</button>
                             </div>
                         </div>
                     </form>
@@ -114,41 +131,7 @@
                 }
             });
 
-            $("#add_client").click(function (e) {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                e.preventDefault();
-                var formData = {
-                    name: jQuery('#input-name').val(),
-                    email: jQuery('#input-email').val(),
-                    contact_person:jQuery('#input-contact_person').val(),
-                    phone:jQuery('#input-phone').val(),
-                    county:jQuery('#county').val(),
-                    sub_county:jQuery('#sub_county').val(),
-                    area:jQuery('#input-area').val(),
-                };
 
-                var type = "POST";
-                var ajaxurl = '{{route('clients.store')}}';
-                $.ajax({
-                    type: type,
-                    url: ajaxurl,
-                    data: formData,
-                    success: function (data) {
-                        jQuery.each(data.errors, function(key, value){
-                            jQuery('.alert-danger').show();
-                            jQuery('.alert-danger').append('<p>'+value+'</p>');
-                            console.log(value);
-                        });
-                        window.location.href ='{{route('clients.index')}}';
-
-                    }
-                });
-
-            });
         });
 
 
