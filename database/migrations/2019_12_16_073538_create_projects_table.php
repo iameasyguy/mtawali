@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->string('client');
             $table->string('area');
             $table->string('created_by');
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }
