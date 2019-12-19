@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Project;
-use DB;
+use App\Report;
 use Illuminate\Http\Request;
-use App\Client;
-class ProjectController extends Controller
+
+class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,9 +24,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $clients = DB::table('clients')->groupBy('name')
-            ->pluck('name','id');
-        return view('modules.projects.create',compact('clients'));
+        //
     }
 
     /**
@@ -38,16 +35,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param  \App\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Report $report)
     {
         //
     }
@@ -55,10 +52,10 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Project  $project
+     * @param  \App\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function edit(Project $project)
+    public function edit(Report $report)
     {
         //
     }
@@ -67,10 +64,10 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Project  $project
+     * @param  \App\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request, Report $report)
     {
         //
     }
@@ -78,16 +75,11 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Project  $project
+     * @param  \App\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Project $project)
+    public function destroy(Report $report)
     {
         //
-    }
-
-    public function getarea($client){
-        $area = DB::table('clients')->where('name',$client)->pluck("area","area");;
-        return json_encode($area);
     }
 }

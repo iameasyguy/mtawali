@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
 
-
+                            <div class="row"></div>
                             </div>
 
                             <div class="card-footer ml-auto mr-auto">
