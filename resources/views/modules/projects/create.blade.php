@@ -73,9 +73,8 @@
                                     </div>
                                 </div>
 
-<<<<<<< HEAD
-                            <div class="row"></div>
-=======
+
+
                                 {{--<div class="row">--}}
                                     {{--<label class="col-sm-2 col-form-label">{{ __('Personnel on Site') }}</label>--}}
                                     {{--<div class="col-sm-7">--}}
@@ -90,7 +89,6 @@
                                         {{--</div>--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
->>>>>>> 4d0e01ba6fb0f7974b1b9495db6f07ac8be652f9
                             </div>
 
                             <div class="card-footer ml-auto mr-auto">
