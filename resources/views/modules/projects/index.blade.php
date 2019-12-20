@@ -79,15 +79,16 @@
 
                                                 <td>
                                                     @if($project->status==1)
-                                                        <span class="badge badge-pill badge-danger">Pending</span>
-                                                    @else
                                                         <span class="badge badge-pill badge-warning">Closed</span>
+                                                    @else
+                                                        <span class="badge badge-pill badge-danger">Pending</span>
+
                                                     @endif
 
                                                 </td>
 
                                                 <td>
-                                                    {{ $project->added_by }}
+                                                    {{ $project->created_by }}
                                                 </td>
                                                 <td class="td-actions text-right">
                                                     {{--                              @include('shared._actions', ['entity' => 'projects','id'=>$project->id])--}}

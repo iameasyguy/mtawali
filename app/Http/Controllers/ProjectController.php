@@ -6,16 +6,18 @@ use App\Project;
 use DB;
 use Illuminate\Http\Request;
 use App\Personel;
+use App\Authorizable;
 class ProjectController extends Controller
 {
+    use Authorizable;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Project $project)
     {
-        //
+        return view('modules.projects.index',['projects'=>$project->paginate(10)]);
     }
 
     /**
@@ -39,11 +41,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
 
-=======
-        return response()->json(array('success' => true,'message' =>$request->all()), 200);
->>>>>>> 4d0e01ba6fb0f7974b1b9495db6f07ac8be652f9
+        $rules =array(
+            'name'=>'required|min:3',
+            'client'=>'required|min:3',
+            'area'=>'required|min:3',
+
+        );
+        $this->validate($request,$rules);
+
+        $data = request()->except(['_token','_method']);
+
+        $data['created_by']=auth()->user()->name;
+        Project::create($data);
+
+        return redirect()->route('projects.index')->withStatus(__('Project successfully created.'));
     }
 
     /**
@@ -88,7 +100,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('projects.index')->withStatus(__('Project successfully deleted.'));
     }
 
     public function getarea($client){
