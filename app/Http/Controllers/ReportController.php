@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Personel;
+use App\Project;
 use App\Report;
+use App\Installer;
 use Illuminate\Http\Request;
 use App\Authorizable;
 class ReportController extends Controller
@@ -25,7 +27,10 @@ class ReportController extends Controller
      */
     public function create()
     {
-        return view('modules.reports.create');
+        $personnels =Personel::pluck('name','id');
+        $installers =Installer::pluck('name','id');
+        $projects =Project::where('status','=',0)->pluck('id','name');
+        return view('modules.reports.create',compact('projects','installers','personnels'));
     }
 
     /**

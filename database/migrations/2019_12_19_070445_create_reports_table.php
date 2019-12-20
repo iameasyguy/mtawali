@@ -14,6 +14,7 @@ class CreateReportsTable extends Migration
     public function up()
     {
         Schema::create('reports', function (Blueprint $table) {
+
             $table->increments('id');
             $table->integer('project_id')->unsigned()->nullable();
             $table->string('installer')->nullable();
