@@ -77,7 +77,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        $clients = DB::table('clients')->groupBy('name')
+            ->pluck('name','id');
+
+        return view('modules.projects.update',compact('clients','project'));
     }
 
     /**
@@ -89,7 +92,18 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $rules =array(
+            'name'=>'required|min:3',
+            'client'=>'required|min:3',
+            'area'=>'required|min:3',
+
+        );
+        $this->validate($request,$rules);
+        $data = request()->except(['_token','_method']);
+        $data['created_by']=auth()->user()->name;
+
+        Project::whereId($project->id)->update($data);
+        return redirect()->route('projects.index')->withStatus(__('Project successfully updated.'));
     }
 
     /**
