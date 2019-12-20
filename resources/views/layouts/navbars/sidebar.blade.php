@@ -97,6 +97,14 @@
                 </a>
             </li>
         @endcan
+        @can('add_reports','edit_reports', 'delete_reports')
+            <li class="nav-item{{ $activePage == 'report-management' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('reports.index') }}">
+                    <i class="material-icons">assessment</i>
+                    <p>{{ __('Reports Management') }}</p>
+                </a>
+            </li>
+        @endcan
     </ul>
   </div>
 </div>

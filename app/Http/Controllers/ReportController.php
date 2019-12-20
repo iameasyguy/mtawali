@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Report;
 use Illuminate\Http\Request;
-
+use App\Authorizable;
 class ReportController extends Controller
 {
+    use Authorizable;
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +25,7 @@ class ReportController extends Controller
      */
     public function create()
     {
-        //
+        return view('modules.reports.create');
     }
 
     /**

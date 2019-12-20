@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('installers', 'InstallerController');
     Route::resource('personels', 'PersonelController');
     Route::resource('projects', 'ProjectController');
+    Route::resource('reports', 'ReportController');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
