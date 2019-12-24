@@ -74,7 +74,7 @@
                                                     data-dependent="installer">
                                                 <option value="">Select Installer</option>
                                                 @foreach ($installers as $key => $value)
-                                                    <option value="{{ $key }}">{{ $value }}</option>
+                                                    <option value="{{ $value }}">{{ $value }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -90,7 +90,7 @@
                                                     data-dependent="personnel">
                                                 <option value="">Select personnel</option>
                                                 @foreach ($personnels as $key => $value)
-                                                    <option value="{{ $key }}">{{ $value }}</option>
+                                                    <option value="{{ $value }}">{{ $value }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -587,6 +587,33 @@
                                         </div>
                                     </div>
                                 </div>
+                                    <div class="row">
+                                        <label class="col-sm-2 col-form-label">{{ __('Save as Draft ') }}</label>
+                                        <div class="col-sm-7">
+                                            <div class="form-group{{ $errors->has('status') ? ' has-danger' : '' }}">
+
+                                                    <div class="togglebutton">
+                                                        <label>
+                                                            <input type="checkbox" name="status" id="status" checked="">
+                                                            <span class="toggle"></span>
+                                                            Save as Draft
+                                                        </label>
+                                                    </div>
+
+{{--                                                    <div class="togglebutton">--}}
+{{--                                                        <label>--}}
+{{--                                                            <input type="checkbox" name="status" id="status">--}}
+{{--                                                            <span class="toggle"></span>--}}
+{{--                                                            status--}}
+{{--                                                        </label>--}}
+{{--                                                    </div>--}}
+                                                
+                                                @if ($errors->has('status'))
+                                                    <span id="status-error" class="error text-danger" for="input-status">{{ $errors->first('status') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
 
                             <div class="card-footer ml-auto mr-auto">

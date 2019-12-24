@@ -15,9 +15,9 @@ class ReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Report $report)
     {
-        //
+        return view('modules.reports.index',['reports' => $report->paginate(10)]);
     }
 
     /**
@@ -84,7 +84,7 @@ class ReportController extends Controller
             {
                 $name=$image->getClientOriginalName();
                 $image->move(public_path().'/images/', $name);
-                $pic[] = $name;
+                $pic[] = $name.date('d-m-Y-H-i');
             }
         }
 
@@ -100,6 +100,7 @@ class ReportController extends Controller
         $report = new Report($data);
         $report->project()->associate($project)->save();
 
+        return redirect()->route('reports.index')->withStatus(__('Project Report successfully created.'));
     }
 
     /**
@@ -144,6 +145,8 @@ class ReportController extends Controller
      */
     public function destroy(Report $report)
     {
-        //
+        $report->delete();
+
+        return redirect()->route('reports.index')->withStatus(__('Report successfully deleted.'));
     }
 }
