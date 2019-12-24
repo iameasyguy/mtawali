@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <form method="post" action="{{route('reports.store')}}" autocomplete="off"
-                          class="form-horizontal">
+                          class="form-horizontal" enctype="multipart/form-data">
                         @csrf
                         @method('post')
 
@@ -15,8 +15,28 @@
 
                                 <h4 class="card-title">{{ __('Add Project') }}</h4>
                                 <p class="card-category"></p>
+
                             </div>
                             <div class="card-body ">
+                                @if (count($errors) > 0)
+
+                                    <div class="alert alert-danger">
+
+                                        <strong>Opps!</strong> Something went wrong with your input.
+
+                                        <ul>
+
+                                            @foreach ($errors->all() as $error)
+
+                                                <li>{{ $error }}</li>
+
+                                            @endforeach
+
+                                        </ul>
+
+                                    </div>
+                                    <br>
+                                @endif
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="alert alert-danger" style="display:none"></div>
@@ -76,10 +96,10 @@
                                         </div>
                                     </div>
                                 </div>
-{{--                                ['project_id','installer','inspected_by','personnel','t_fabrication','t_profile','no_screws',--}}
-{{--                                't_erection','t_spacing','t_align','t_anchor','c_details','b_details','brc_bcb','wr_wb',--}}
-{{--                                'tcb','w_stiffener','w_beam','t_brace','p_fascia','p_spacing','f_fixing','f_alignment',--}}
-{{--                                'r_cover','c_type','f_spacing','v_ridges','w_flashing','s_touch','comments','prepared_by','confirmed_by','status'];--}}
+                                {{--                                ['project_id','installer','inspected_by','personnel','t_fabrication','t_profile','no_screws',--}}
+                                {{--                                't_erection','t_spacing','t_align','t_anchor','c_details','b_details','brc_bcb','wr_wb',--}}
+                                {{--                                'tcb','w_stiffener','w_beam','t_brace','p_fascia','p_spacing','f_fixing','f_alignment',--}}
+                                {{--                                'r_cover','c_type','f_spacing','v_ridges','w_flashing','s_touch','comments','prepared_by','confirmed_by','status'];--}}
 
                                 <div class="row">
 
@@ -181,40 +201,40 @@
 
                                     </div>
                                 </div>
-{{--                                <div class="row">--}}
+                                {{--                                <div class="row">--}}
 
-{{--                                    <div class="col">--}}
+                                {{--                                    <div class="col">--}}
 
-{{--                                        <div class="form-group{{ $errors->has('t_spacing') ? ' has-danger' : '' }}">--}}
-{{--                                            <input class="form-control{{ $errors->has('t_spacing') ? ' is-invalid' : '' }}"--}}
-{{--                                                   name="t_spacing" id="input-t_spacing" type="text"--}}
-{{--                                                   placeholder="{{ __('Truss spacing') }}" value="{{ old('t_spacing') }}"--}}
-{{--                                                   required="true" aria-required="true"/>--}}
-{{--                                            @if ($errors->has('t_spacing'))--}}
-{{--                                                <span id="t_spacing-error" class="error text-danger"--}}
-{{--                                                      for="input-t_spacing">{{ $errors->first('t_spacing') }}</span>--}}
-{{--                                            @endif--}}
-{{--                                        </div>--}}
-
-
-
-{{--                                    </div>--}}
-{{--                                    <div class="col">--}}
-
-{{--                                        <div class="form-group{{ $errors->has('t_align') ? ' has-danger' : '' }}">--}}
-{{--                                            <input class="form-control{{ $errors->has('t_align') ? ' is-invalid' : '' }}"--}}
-{{--                                                   name="t_align" id="input-t_align" type="text"--}}
-{{--                                                   placeholder="{{ __('Truss alignment') }}" value="{{ old('t_align') }}"--}}
-{{--                                                   required="true" aria-required="true"/>--}}
-{{--                                            @if ($errors->has('t_align'))--}}
-{{--                                                <span id="t_align-error" class="error text-danger"--}}
-{{--                                                      for="input-t_align">{{ $errors->first('t_align') }}</span>--}}
-{{--                                            @endif--}}
-{{--                                        </div>--}}
+                                {{--                                        <div class="form-group{{ $errors->has('t_spacing') ? ' has-danger' : '' }}">--}}
+                                {{--                                            <input class="form-control{{ $errors->has('t_spacing') ? ' is-invalid' : '' }}"--}}
+                                {{--                                                   name="t_spacing" id="input-t_spacing" type="text"--}}
+                                {{--                                                   placeholder="{{ __('Truss spacing') }}" value="{{ old('t_spacing') }}"--}}
+                                {{--                                                   required="true" aria-required="true"/>--}}
+                                {{--                                            @if ($errors->has('t_spacing'))--}}
+                                {{--                                                <span id="t_spacing-error" class="error text-danger"--}}
+                                {{--                                                      for="input-t_spacing">{{ $errors->first('t_spacing') }}</span>--}}
+                                {{--                                            @endif--}}
+                                {{--                                        </div>--}}
 
 
-{{--                                    </div>--}}
-{{--                                </div>--}}
+
+                                {{--                                    </div>--}}
+                                {{--                                    <div class="col">--}}
+
+                                {{--                                        <div class="form-group{{ $errors->has('t_align') ? ' has-danger' : '' }}">--}}
+                                {{--                                            <input class="form-control{{ $errors->has('t_align') ? ' is-invalid' : '' }}"--}}
+                                {{--                                                   name="t_align" id="input-t_align" type="text"--}}
+                                {{--                                                   placeholder="{{ __('Truss alignment') }}" value="{{ old('t_align') }}"--}}
+                                {{--                                                   required="true" aria-required="true"/>--}}
+                                {{--                                            @if ($errors->has('t_align'))--}}
+                                {{--                                                <span id="t_align-error" class="error text-danger"--}}
+                                {{--                                                      for="input-t_align">{{ $errors->first('t_align') }}</span>--}}
+                                {{--                                            @endif--}}
+                                {{--                                        </div>--}}
+
+
+                                {{--                                    </div>--}}
+                                {{--                                </div>--}}
                                 <div class="row">
 
                                     <div class="col">
@@ -523,7 +543,7 @@
                                 </div>
                                 <div class="row">
 
-                                    <div class="col-sm-7">
+                                    <div class="col">
 
                                         <div class="form-group{{ $errors->has('s_touch') ? ' has-danger' : '' }}">
                                             <input class="form-control{{ $errors->has('s_touch') ? ' is-invalid' : '' }}"
@@ -539,8 +559,20 @@
 
 
                                     </div>
+                                    <div class="col avatar-upload">
+                                        <label class="col-sm-2 col-form-label">{{ __('Upload Photos') }}</label>
+                                        <div class="col">
+{{--                                            <div class="form-group">--}}
+
+                                                <input class="form-control-file" type="file" id="filename" name="filename[]" multiple required>
+
+
+{{--                                            </div>--}}
+                                        </div>
+                                    </div>
 
                                 </div>
+
                                 <div class="row">
                                     <label class="col-sm-2 col-form-label">{{ __('Supervisor comments') }}</label>
                                     <div class="col-sm-7">

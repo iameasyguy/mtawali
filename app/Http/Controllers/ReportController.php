@@ -41,7 +41,65 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        $rules =array(
+            'project_id'=> 'required|unique:reports,project_id',
+//            'installer'=> 'required',
+//            'personnel'=> 'required',
+            't_fabrication'=> 'required',
+            't_profile'=> 'required',
+            'no_screws'=> 'required',
+            't_erection'=> 'required',
+            't_spacing'=> 'required',
+            't_align'=> 'required',
+            't_anchor'=> 'required',
+            'c_details'=> 'required',
+            'b_details'=> 'required',
+            'brc_bcb'=> 'required',
+            'wr_wb'=> 'required',
+            'tcb'=> 'required',
+            'w_stiffener'=> 'required',
+            'w_beam'=> 'required',
+            't_brace'=> 'required',
+            'p_fascia'=> 'required',
+            'p_spacing'=> 'required',
+            'f_fixing'=> 'required',
+            'f_alignment'=> 'required',
+            'r_cover'=> 'required',
+            'c_type'=> 'required',
+            'f_spacing'=> 'required',
+            'v_ridges'=> 'required',
+            'w_flashing'=> 'required',
+            's_touch'=> 'required',
+            'comments'=> 'required',
+            'filename'=>'required',
+            'filename.*'=>'image|mimes:jpeg,png,jpg,gif,svg,PNG|max:20000',
+        );
+        $this->validate($request,$rules);
+        $data = request()->except(['_token','_method']);
+
+        if($request->hasfile('filename'))
+        {
+
+            foreach($request->file('filename') as $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name);
+                $pic[] = $name;
+            }
+        }
+
+        if($request->has('personnel')){
+            $data['personnel']=implode(",",$request->personnel);
+        }
+
+        $data['filename']=implode(",",$pic);
+        $data['inspected_by']=auth()->user()->name;
+        $data['prepared_by']=auth()->user()->name;
+        $data['confirmed_by']=$request->installer;
+        $project = Project::with('report')->findOrFail($request->project_id);
+        $report = new Report($data);
+        $report->project()->associate($project)->save();
+
     }
 
     /**
