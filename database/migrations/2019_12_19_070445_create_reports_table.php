@@ -49,6 +49,7 @@ class CreateReportsTable extends Migration
             $table->string('prepared_by')->nullable();
             $table->string('confirmed_by')->nullable();
             $table->string('status')->nullable();
+            $table->string('filename')->nullable();
             $table->timestamps();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
 

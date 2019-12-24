@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="{{route('projects.store')}}" autocomplete="off"
+                    <form method="post" action="{{route('reports.store')}}" autocomplete="off"
                           class="form-horizontal">
                         @csrf
                         @method('post')
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 text-right">
-                                        <a href="{{ route('projects.index') }}"
+                                        <a href="{{ route('reports.index') }}"
                                            class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
                                     </div>
                                 </div>
@@ -181,40 +181,40 @@
 
                                     </div>
                                 </div>
-                                <div class="row">
+{{--                                <div class="row">--}}
 
-                                    <div class="col">
+{{--                                    <div class="col">--}}
 
-                                        <div class="form-group{{ $errors->has('t_spacing') ? ' has-danger' : '' }}">
-                                            <input class="form-control{{ $errors->has('t_spacing') ? ' is-invalid' : '' }}"
-                                                   name="t_spacing" id="input-t_spacing" type="text"
-                                                   placeholder="{{ __('Truss spacing') }}" value="{{ old('t_spacing') }}"
-                                                   required="true" aria-required="true"/>
-                                            @if ($errors->has('t_spacing'))
-                                                <span id="t_spacing-error" class="error text-danger"
-                                                      for="input-t_spacing">{{ $errors->first('t_spacing') }}</span>
-                                            @endif
-                                        </div>
-
-
-
-                                    </div>
-                                    <div class="col">
-
-                                        <div class="form-group{{ $errors->has('t_align') ? ' has-danger' : '' }}">
-                                            <input class="form-control{{ $errors->has('t_align') ? ' is-invalid' : '' }}"
-                                                   name="t_align" id="input-t_align" type="text"
-                                                   placeholder="{{ __('Truss alignment') }}" value="{{ old('t_align') }}"
-                                                   required="true" aria-required="true"/>
-                                            @if ($errors->has('t_align'))
-                                                <span id="t_align-error" class="error text-danger"
-                                                      for="input-t_align">{{ $errors->first('t_align') }}</span>
-                                            @endif
-                                        </div>
+{{--                                        <div class="form-group{{ $errors->has('t_spacing') ? ' has-danger' : '' }}">--}}
+{{--                                            <input class="form-control{{ $errors->has('t_spacing') ? ' is-invalid' : '' }}"--}}
+{{--                                                   name="t_spacing" id="input-t_spacing" type="text"--}}
+{{--                                                   placeholder="{{ __('Truss spacing') }}" value="{{ old('t_spacing') }}"--}}
+{{--                                                   required="true" aria-required="true"/>--}}
+{{--                                            @if ($errors->has('t_spacing'))--}}
+{{--                                                <span id="t_spacing-error" class="error text-danger"--}}
+{{--                                                      for="input-t_spacing">{{ $errors->first('t_spacing') }}</span>--}}
+{{--                                            @endif--}}
+{{--                                        </div>--}}
 
 
-                                    </div>
-                                </div>
+
+{{--                                    </div>--}}
+{{--                                    <div class="col">--}}
+
+{{--                                        <div class="form-group{{ $errors->has('t_align') ? ' has-danger' : '' }}">--}}
+{{--                                            <input class="form-control{{ $errors->has('t_align') ? ' is-invalid' : '' }}"--}}
+{{--                                                   name="t_align" id="input-t_align" type="text"--}}
+{{--                                                   placeholder="{{ __('Truss alignment') }}" value="{{ old('t_align') }}"--}}
+{{--                                                   required="true" aria-required="true"/>--}}
+{{--                                            @if ($errors->has('t_align'))--}}
+{{--                                                <span id="t_align-error" class="error text-danger"--}}
+{{--                                                      for="input-t_align">{{ $errors->first('t_align') }}</span>--}}
+{{--                                            @endif--}}
+{{--                                        </div>--}}
+
+
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="row">
 
                                     <div class="col">
@@ -303,14 +303,14 @@
                                     </div>
                                     <div class="col">
 
-                                        <div class="form-group{{ $errors->has('brc_bcb') ? ' has-danger' : '' }}">
-                                            <input class="form-control{{ $errors->has('brc_bcb') ? ' is-invalid' : '' }}"
-                                                   name="brc_bcb" id="input-brc_bcb" type="text"
+                                        <div class="form-group{{ $errors->has('tcb') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('tcb') ? ' is-invalid' : '' }}"
+                                                   name="tcb" id="input-tcb" type="text"
                                                    placeholder="{{ __('TCB') }}" value="{{ old('tcb') }}"
                                                    required="true" aria-required="true"/>
-                                            @if ($errors->has('brc_bcb'))
-                                                <span id="brc_bcb-error" class="error text-danger"
-                                                      for="input-brc_bcb">{{ $errors->first('brc_bcb') }}</span>
+                                            @if ($errors->has('tcb'))
+                                                <span id="tcb_bcb-error" class="error text-danger"
+                                                      for="input-tcb">{{ $errors->first('tcb') }}</span>
                                             @endif
                                         </div>
 

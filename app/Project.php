@@ -10,4 +10,13 @@ class Project extends Model
     public function report(){
         return $this->hasOne(Report::class);
     }
+
+   public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($project){
+            $project->report()->delete();
+        });
+    }
 }

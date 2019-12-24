@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5cbc101-892b-4fed-95db-90d283483f83" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_19_070445_create_reports_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_19_070445_create_reports_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/modules/projects/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modules/projects/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/modules/reports/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/modules/reports/create.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,65 +24,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/modules/projects/create.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/modules/reports/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="45" column="38" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="45" selection-end-column="38" />
-              <folding>
-                <element signature="e#1544#2702#0#HTML" />
-              </folding>
+            <state relative-caret-position="4384">
+              <caret line="274" column="105" selection-start-line="274" selection-start-column="102" selection-end-line="274" selection-end-column="105" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/modules/reports/create.blade.php">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_19_070445_create_reports_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="547" column="148" selection-start-line="547" selection-start-column="148" selection-end-line="547" selection-end-column="148" />
-              <folding>
-                <element signature="e#2658#3741#0#HTML" />
-                <element signature="e#4889#7123#0#HTML" />
-                <element signature="e#7639#9802#0#HTML" />
-                <element signature="e#7753#8662#0#HTML" />
-                <element signature="e#9835#11971#0#HTML" />
-                <element signature="e#9890#10904#0#HTML" />
-                <element signature="e#10941#11932#0#HTML" />
-                <element signature="e#12028#14162#0#HTML" />
-                <element signature="e#12083#13093#0#HTML" />
-                <element signature="e#13130#14123#0#HTML" />
-                <element signature="e#14162#16311#0#HTML" />
-                <element signature="e#16377#18517#0#HTML" />
-                <element signature="e#18540#20614#0#HTML" />
-                <element signature="e#20647#22783#0#HTML" />
-                <element signature="e#22816#24936#0#HTML" />
-                <element signature="e#24969#27118#0#HTML" />
-                <element signature="e#27151#29307#0#HTML" />
-                <element signature="e#29340#31472#0#HTML" />
-                <element signature="e#31497#33654#0#HTML" />
-                <element signature="e#33685#34778#0#HTML" />
-              </folding>
+            <state relative-caret-position="220">
+              <caret line="61" column="6" lean-forward="true" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClientController.php">
+        <entry file="file://$PROJECT_DIR$/app/Project.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="32" column="88" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
-              <folding>
-                <element signature="e#39#56#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="288">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -93,9 +61,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Post</find>
-      <find>shared</find>
-      <find>user.</find>
       <find>$user</find>
       <find>users.</find>
       <find>clients</find>
@@ -121,6 +86,11 @@
       <find>sub_county</find>
       <find>personnel</find>
       <find>name</find>
+      <find>projects.</find>
+      <find>pers</find>
+      <find>brc_bcb</find>
+      <find>tcb</find>
+      <find>brc</find>
     </findStrings>
     <replaceStrings>
       <replace>users.</replace>
@@ -141,6 +111,7 @@
       <replace>$project</replace>
       <replace>area</replace>
       <replace>project</replace>
+      <replace>reports.</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -189,17 +160,17 @@
         <option value="$PROJECT_DIR$/resources/views/modules/personnel/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/modules/projects/create.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_16_073538_create_projects_table.php" />
-        <option value="$PROJECT_DIR$/app/Project.php" />
-        <option value="$PROJECT_DIR$/resources/views/modules/projects/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/modules/projects/update.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ClientController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_12_19_070445_create_reports_table.php" />
         <option value="$PROJECT_DIR$/app/Report.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" />
+        <option value="$PROJECT_DIR$/resources/views/modules/projects/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/modules/reports/create.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_12_19_070445_create_reports_table.php" />
+        <option value="$PROJECT_DIR$/app/Project.php" />
       </list>
     </option>
   </component>
@@ -312,7 +283,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -373,12 +343,13 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="projects" type="462c0819:PsiDirectoryNode" />
+              <item name="reports" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -436,17 +407,19 @@
       <workItem from="1576750545513" duration="4632000" />
       <workItem from="1576778964291" duration="7471000" />
       <workItem from="1576824095968" duration="12899000" />
+      <workItem from="1576918423377" duration="4581000" />
+      <workItem from="1577178870725" duration="1241000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115478000" />
+    <option name="totallyTimeSpent" value="121300000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27970898" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28940988" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" weight="0.3354891" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -469,7 +442,7 @@
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27970898" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28940988" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" weight="0.3354891" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -484,7 +457,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="DB Execution Console" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.16843972" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.16843972" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" weight="0.32978722" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -738,24 +711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Project.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/modules/personnel/update.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="55">
           <caret line="88" column="26" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/modules/projects/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="104" />
         </state>
       </provider>
     </entry>
@@ -790,16 +749,6 @@
     <entry file="file://$PROJECT_DIR$/resources/views/modules/reports/update.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjectController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1472">
-          <caret line="101" column="56" lean-forward="true" selection-start-line="101" selection-start-column="56" selection-end-line="101" selection-end-column="56" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/modules/reports/index.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -820,13 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClientController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -841,59 +783,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_19_070445_create_reports_table.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClientController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
+        <state relative-caret-position="80">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="32" column="88" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
+        <state relative-caret-position="304">
+          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
           <folding>
             <element signature="e#39#56#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/modules/projects/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="28" column="130" selection-start-line="28" selection-start-column="130" selection-end-line="28" selection-end-column="130" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/modules/projects/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="45" column="38" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="45" selection-end-column="38" />
-          <folding>
-            <element signature="e#1544#2702#0#HTML" />
-          </folding>
+        <state relative-caret-position="98">
+          <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/modules/reports/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="547" column="148" selection-start-line="547" selection-start-column="148" selection-end-line="547" selection-end-column="148" />
+        <state relative-caret-position="4384">
+          <caret line="274" column="105" selection-start-line="274" selection-start-column="102" selection-end-line="274" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjectController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="101" column="56" selection-start-line="101" selection-start-column="56" selection-end-line="101" selection-end-column="56" />
           <folding>
-            <element signature="e#2658#3741#0#HTML" />
-            <element signature="e#4889#7123#0#HTML" />
-            <element signature="e#7639#9802#0#HTML" />
-            <element signature="e#7753#8662#0#HTML" />
-            <element signature="e#9835#11971#0#HTML" />
-            <element signature="e#9890#10904#0#HTML" />
-            <element signature="e#10941#11932#0#HTML" />
-            <element signature="e#12028#14162#0#HTML" />
-            <element signature="e#12083#13093#0#HTML" />
-            <element signature="e#13130#14123#0#HTML" />
-            <element signature="e#14162#16311#0#HTML" />
-            <element signature="e#16377#18517#0#HTML" />
-            <element signature="e#18540#20614#0#HTML" />
-            <element signature="e#20647#22783#0#HTML" />
-            <element signature="e#22816#24936#0#HTML" />
-            <element signature="e#24969#27118#0#HTML" />
-            <element signature="e#27151#29307#0#HTML" />
-            <element signature="e#29340#31472#0#HTML" />
-            <element signature="e#31497#33654#0#HTML" />
-            <element signature="e#33685#34778#0#HTML" />
+            <element signature="e#40#56#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Project.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_19_070445_create_reports_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="61" column="6" lean-forward="true" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
         </state>
       </provider>
     </entry>
