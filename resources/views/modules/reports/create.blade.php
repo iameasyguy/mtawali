@@ -13,7 +13,7 @@
                             <div class="card-header card-header-primary">
 
 
-                                <h4 class="card-title">{{ __('Add Project') }}</h4>
+                                <h4 class="card-title">{{ __('Add Report') }}</h4>
                                 <p class="card-category"></p>
 
                             </div>

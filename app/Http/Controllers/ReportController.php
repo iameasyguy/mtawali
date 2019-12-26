@@ -122,7 +122,11 @@ class ReportController extends Controller
      */
     public function edit(Report $report)
     {
-        //
+        $personnels =Personel::pluck('name','id');
+        $installers =Installer::pluck('name','id');
+        $projects =Project::where('status','=',0)->pluck('id','name');
+//        return $report->personnel;
+       return view('modules.reports.update',compact('report','personnels','installers','projects'));
     }
 
     /**
@@ -134,7 +138,60 @@ class ReportController extends Controller
      */
     public function update(Request $request, Report $report)
     {
-        //
+        $rules =array(
+
+            't_fabrication'=> 'required',
+            't_profile'=> 'required',
+            'no_screws'=> 'required',
+            't_erection'=> 'required',
+            't_spacing'=> 'required',
+            't_align'=> 'required',
+            't_anchor'=> 'required',
+            'c_details'=> 'required',
+            'b_details'=> 'required',
+            'brc_bcb'=> 'required',
+            'wr_wb'=> 'required',
+            'tcb'=> 'required',
+            'w_stiffener'=> 'required',
+            'w_beam'=> 'required',
+            't_brace'=> 'required',
+            'p_fascia'=> 'required',
+            'p_spacing'=> 'required',
+            'f_fixing'=> 'required',
+            'f_alignment'=> 'required',
+            'r_cover'=> 'required',
+            'c_type'=> 'required',
+            'f_spacing'=> 'required',
+            'v_ridges'=> 'required',
+            'w_flashing'=> 'required',
+            's_touch'=> 'required',
+            'comments'=> 'required',
+            'filename.*'=>'image|mimes:jpeg,png,jpg,gif,svg,PNG|max:20000',
+        );
+        $this->validate($request,$rules);
+        $data = request()->except(['_token','_method']);
+        if($request->hasfile('filename'))
+        {
+
+            foreach($request->file('filename') as $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name);
+                $pic[] = $name.date('d-m-Y-H-i');
+                $data['filename']=implode(",",$pic);
+            }
+        }
+
+        if($request->has('personnel')){
+            $data['personnel']=implode(",",$request->personnel);
+        }
+
+        $data['inspected_by']=auth()->user()->name;
+        $data['prepared_by']=auth()->user()->name;
+        $data['confirmed_by']=$request->installer;
+
+        Report::whereId($report->id)->update($data);
+        return redirect()->route('reports.index')->withStatus(__('Report successfully updated.'));
     }
 
     /**
