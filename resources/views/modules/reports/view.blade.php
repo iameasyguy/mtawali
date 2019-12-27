@@ -19,6 +19,7 @@
 
                             <div class="row">
                                 <div class="col-md-12 text-right">
+                                    <a href="{{route('pdf',$report)}}"  class="btn btn-sm btn-warning"><i class="material-icons">print</i> Print</a>
                                     <a href="{{ route('reports.index') }}"
                                        class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
                                 </div>
@@ -35,7 +36,7 @@
                                             <div class="row">
                                                 <div class="col-md-4 col-lg-4 col-xl-4"></div>
                                                 <div class="col-md-4 col-lg-4 col-xl-4">
-                                                    <div class="table-responsive">
+                                                    <div class="table-responsive" border="1" cellpadding="0"  cellspacing="0">
                                                         <table class="table-bordered table-responsive">
                                                             <tbody>
                                                             <tr>
@@ -445,7 +446,7 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                                <div class="col-md- col-lg-4 col-xl-4"></div>
+                                                <div class="col-md-4 col-lg-4 col-xl-4"></div>
                                             </div>
 
                                             <div class="row">
@@ -459,6 +460,54 @@
 
                                                 </div>
                                             </div>
+                                            <div class="row">
+
+                                                <div class="col-md-6 ml-auto" >
+                                                    @if ($report->filename != "")
+                                                        @foreach(explode(',', $report->filename) as $info)
+                                                            <div class="column">
+                                                                <img  src="{{asset('images')}}/{{$info}}" class="img-raised rounded img-fluid" alt="...">
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6"></div>
+
+                                                <style>
+                                                    .column {
+                                                        float: left;
+                                                        width: 33.33%;
+                                                        padding: 5px;
+                                                    }
+
+                                                    /* Clear floats after image containers */
+                                                    .row::after {
+                                                        content: "";
+                                                        clear: both;
+                                                        display: table;
+                                                    }
+                                                </style>
+                                            </div>
+                                            {{--                                            <div class="row">--}}
+                                            {{--                                                <div class="col">--}}
+                                            {{--                                                    <label class="col-sm-2  font-weight-bold">{{ __('Prepared by:') }}</label>--}}
+                                            {{--                                                    <p  class="form-control"></p>--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                                <div class="col">--}}
+                                            {{--                                                    <label class="col-sm-2  font-weight-bold">{{ __('Confirmed by:') }}</label>--}}
+                                            {{--                                                    <p  class="form-control"></p>--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                            </div>--}}
+                                            {{--                                            <div class="row">--}}
+                                            {{--                                                <div class="col">--}}
+                                            {{--                                                    <label class="col-sm-2  font-weight-bold">{{ __('Supervisor sign. & date:') }}</label>--}}
+                                            {{--                                                    <p  class="form-control"></p>--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                                <div class="col">--}}
+                                            {{--                                                    <label class="col-sm-2  font-weight-bold">{{ __('Installer sign.& date:') }}</label>--}}
+                                            {{--                                                    <p  class="form-control"></p>--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                            </div>--}}
                                         </div>
                                     </div>
                                 </div>

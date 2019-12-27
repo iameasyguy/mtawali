@@ -7,6 +7,7 @@ use App\Report;
 use App\Installer;
 use Illuminate\Http\Request;
 use App\Authorizable;
+use PDF;
 class ReportController extends Controller
 {
     use Authorizable;
@@ -44,8 +45,6 @@ class ReportController extends Controller
     {
         $rules =array(
             'project_id'=> 'required|unique:reports,project_id',
-//            'installer'=> 'required',
-//            'personnel'=> 'required',
             't_fabrication'=> 'required',
             't_profile'=> 'required',
             'no_screws'=> 'required',
@@ -84,8 +83,9 @@ class ReportController extends Controller
             foreach($request->file('filename') as $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/', $name);
-                $pic[] = $name.date('d-m-Y-H-i');
+                $img_path = $name.date('d-m-Y-H-i');
+                $image->move(public_path().'/images/', $img_path);
+                $pic[] = $img_path;
             }
         }
 
@@ -143,7 +143,6 @@ class ReportController extends Controller
     public function update(Request $request, Report $report)
     {
         $rules =array(
-
             't_fabrication'=> 'required',
             't_profile'=> 'required',
             'no_screws'=> 'required',
@@ -180,8 +179,9 @@ class ReportController extends Controller
             foreach($request->file('filename') as $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/', $name);
-                $pic[] = $name.date('d-m-Y-H-i');
+                $img_path = date('d-m-Y-H-i').$name;
+                $image->move(public_path().'/images/', $img_path);
+                $pic[] = $img_path;
                 $data['filename']=implode(",",$pic);
             }
         }
@@ -193,7 +193,6 @@ class ReportController extends Controller
         $data['inspected_by']=auth()->user()->name;
         $data['prepared_by']=auth()->user()->name;
         $data['confirmed_by']=$request->installer;
-
         Report::whereId($report->id)->update($data);
         return redirect()->route('reports.index')->withStatus(__('Report successfully updated.'));
     }
@@ -209,5 +208,12 @@ class ReportController extends Controller
         $report->delete();
 
         return redirect()->route('reports.index')->withStatus(__('Report successfully deleted.'));
+    }
+
+    public function downpdf(Report $report)
+    {
+
+        $pdf = PDF::loadView('modules.reports.pdf',compact('report'));
+        return $pdf->download('report.pdf');
     }
 }

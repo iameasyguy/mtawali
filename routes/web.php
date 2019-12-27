@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::get('clients/sub_counties/{county}','ClientController@getcounty');
     Route::get('projects/area/{client}','ProjectController@getarea');
+    Route::get('/pdf/{report}','ReportController@downpdf')->name('pdf');
 
 });
 
