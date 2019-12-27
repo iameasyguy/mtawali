@@ -86,10 +86,16 @@
                                             <select multiple name="personnel[]" id="personnel"
                                                     class="form-control input-lg dynamic"
                                                     data-dependent="personnel">
+                                                @if($report->personnel!="")
+
                                                 <option value="{{ $report->personnel }}" selected>{{ $report->personnel }}</option>
+
+                                                        @endif
                                                 @foreach ($personnels as $key => $value)
-                                                    <option value="{{ $value }}">{{ $value }}</option>
+{{--                                                    <option value="{{ $value }}">{{ $value }}</option>--}}
+                                                    <option value="{{ $value->name }},{{ $value->skilled }}">{{ $value->name }}</option>
                                                 @endforeach
+
                                             </select>
                                         </div>
                                     </div>

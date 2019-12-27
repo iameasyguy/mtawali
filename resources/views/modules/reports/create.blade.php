@@ -90,7 +90,7 @@
                                                     data-dependent="personnel">
                                                 <option value="">Select personnel</option>
                                                 @foreach ($personnels as $key => $value)
-                                                    <option value="{{ $value }}">{{ $value }}</option>
+                                                    <option value="{{ $value->name }},{{ $value->skilled }}">{{ $value->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

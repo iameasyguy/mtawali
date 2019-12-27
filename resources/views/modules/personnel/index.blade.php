@@ -72,7 +72,7 @@
                                                 </td>
 
                                                 <td>
-                                                    @if($personel->skilled==1)
+                                                    @if($personel->skilled=="skilled")
                                                         <span class="badge badge-pill badge-danger">Skilled</span>
                                                     @else
                                                         <span class="badge badge-pill badge-warning">Un-Skilled</span>

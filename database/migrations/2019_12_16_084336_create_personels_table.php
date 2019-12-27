@@ -17,7 +17,7 @@ class CreatePersonelsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('phone');
-            $table->boolean('skilled')->default(false);
+            $table->string('skilled')->default("unskilled");
             $table->string('added_by');
             $table->timestamps();
         });

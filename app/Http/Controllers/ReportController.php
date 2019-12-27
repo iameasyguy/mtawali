@@ -27,9 +27,10 @@ class ReportController extends Controller
      */
     public function create()
     {
-        $personnels =Personel::pluck('name','id');
+        $personnels =Personel::get(['name','skilled']);
         $installers =Installer::pluck('name','id');
         $projects =Project::where('status','=',0)->pluck('id','name');
+//        return $personnels;
         return view('modules.reports.create',compact('projects','installers','personnels'));
     }
 
@@ -111,7 +112,8 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-//        return $report->id;
+
+
         return view('modules.reports.view',compact('report'));
     }
 
@@ -124,7 +126,7 @@ class ReportController extends Controller
      */
     public function edit(Report $report)
     {
-        $personnels =Personel::pluck('name','id');
+        $personnels =Personel::get(['name','skilled']);
         $installers =Installer::pluck('name','id');
         $projects =Project::where('status','=',0)->pluck('id','name');
 //        return $report->personnel;

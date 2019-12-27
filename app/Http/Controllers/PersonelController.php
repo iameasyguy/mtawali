@@ -46,10 +46,10 @@ class PersonelController extends Controller
         $data = request()->except(['_token','_method']);
         if(isset($data['skilled'])){
 
-            $data['skilled']=true;
+            $data['skilled']="skilled";
 
         }else{
-            $data['skilled']=false;
+            $data['skilled']="unskilled";
         }
         $data['added_by']=auth()->user()->name;
         Personel::create($data);
@@ -97,10 +97,10 @@ class PersonelController extends Controller
         $data = request()->except(['_token','_method']);
         if(isset($data['skilled'])){
 
-            $data['skilled']=true;
+            $data['skilled']="skilled";
 
         }else{
-            $data['skilled']=false;
+            $data['skilled']="unskilled";
         }
         $data['added_by']=auth()->user()->name;
         Personel::whereId($personel->id)->update($data);
