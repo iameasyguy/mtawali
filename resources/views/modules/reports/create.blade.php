@@ -201,40 +201,7 @@
 
                                     </div>
                                 </div>
-                                {{--                                <div class="row">--}}
 
-                                {{--                                    <div class="col">--}}
-
-                                {{--                                        <div class="form-group{{ $errors->has('t_spacing') ? ' has-danger' : '' }}">--}}
-                                {{--                                            <input class="form-control{{ $errors->has('t_spacing') ? ' is-invalid' : '' }}"--}}
-                                {{--                                                   name="t_spacing" id="input-t_spacing" type="text"--}}
-                                {{--                                                   placeholder="{{ __('Truss spacing') }}" value="{{ old('t_spacing') }}"--}}
-                                {{--                                                   required="true" aria-required="true"/>--}}
-                                {{--                                            @if ($errors->has('t_spacing'))--}}
-                                {{--                                                <span id="t_spacing-error" class="error text-danger"--}}
-                                {{--                                                      for="input-t_spacing">{{ $errors->first('t_spacing') }}</span>--}}
-                                {{--                                            @endif--}}
-                                {{--                                        </div>--}}
-
-
-
-                                {{--                                    </div>--}}
-                                {{--                                    <div class="col">--}}
-
-                                {{--                                        <div class="form-group{{ $errors->has('t_align') ? ' has-danger' : '' }}">--}}
-                                {{--                                            <input class="form-control{{ $errors->has('t_align') ? ' is-invalid' : '' }}"--}}
-                                {{--                                                   name="t_align" id="input-t_align" type="text"--}}
-                                {{--                                                   placeholder="{{ __('Truss alignment') }}" value="{{ old('t_align') }}"--}}
-                                {{--                                                   required="true" aria-required="true"/>--}}
-                                {{--                                            @if ($errors->has('t_align'))--}}
-                                {{--                                                <span id="t_align-error" class="error text-danger"--}}
-                                {{--                                                      for="input-t_align">{{ $errors->first('t_align') }}</span>--}}
-                                {{--                                            @endif--}}
-                                {{--                                        </div>--}}
-
-
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
                                 <div class="row">
 
                                     <div class="col">
@@ -577,7 +544,7 @@
                                     <label class="col-sm-2 col-form-label">{{ __('Supervisor comments') }}</label>
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('comments') ? ' has-danger' : '' }}">
-                                            <textarea placeholder="{{ __('comments') }}" name="comments" required="true" id="input-comments" cols="10" rows="5"
+                                            <textarea placeholder="{{ __('To capture the comments on the progress of work, correction plan of the noted mistakes/ incomplete details/ any requirements on site/material shortage etc……') }}" name="comments" required="true" id="input-comments" cols="10" rows="5"
                                                       class="form-control{{ $errors->has('comments') ? ' is-invalid' : '' }}"></textarea>
 
                                             @if ($errors->has('comments'))

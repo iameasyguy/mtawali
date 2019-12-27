@@ -120,7 +120,10 @@ class ProjectController extends Controller
     }
 
     public function getarea($client){
-        $area = DB::table('clients')->where('name',$client)->pluck("area","area");;
-        return json_encode($area);
+        $area = DB::table('clients')->where('name',$client)->get(["county",'sub_county',"area"]);
+        foreach ($area as $are){
+            $plucked[] = $are->county ." ". $are->sub_county." ".$are->area;
+        }
+        return json_encode($plucked);
     }
 }

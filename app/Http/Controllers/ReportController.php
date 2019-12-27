@@ -111,8 +111,10 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-        //
+//        return $report->id;
+        return view('modules.reports.view',compact('report'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -108,7 +108,7 @@
                             // console.log(data);
                             jQuery('select[name="area"]').empty();
                             jQuery.each(data, function(key,value){
-                                $('select[name="area"]').append('<option value="'+ key +'">'+ value +'</option>');
+                                $('select[name="area"]').append('<option value="'+ value +'">'+ value +'</option>');
                             });
                         }
                     });

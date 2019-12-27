@@ -109,14 +109,20 @@
                                                     <form action="{{ route('reports.destroy', $project) }}" method="post">
                                                         @csrf
                                                         @method('delete')
+                                                        @can('view_reports')
+                                                        <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('reports.show', $project) }}" data-original-title="" title="view report">
+                                                            <i class="material-icons">description</i>
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                        @endcan
                                                         @can('edit_reports')
-                                                            <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('reports.edit', $project) }}" data-original-title="" title="">
+                                                            <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('reports.edit', $project) }}" data-original-title="" title="edit report">
                                                                 <i class="material-icons">edit</i>
                                                                 <div class="ripple-container"></div>
                                                             </a>
                                                         @endcan
                                                         @can('delete_reports')
-                                                            <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Are you sure you want to delete this report?") }}') ? this.parentElement.submit() : ''">
+                                                            <button type="button" class="btn btn-danger btn-link" data-original-title="" title="delete report" onclick="confirm('{{ __("Are you sure you want to delete this report?") }}') ? this.parentElement.submit() : ''">
                                                                 <i class="material-icons">close</i>
                                                                 <div class="ripple-container"></div>
                                                             </button>

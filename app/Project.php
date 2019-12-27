@@ -19,4 +19,9 @@ class Project extends Model
             $project->report()->delete();
         });
     }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
 }

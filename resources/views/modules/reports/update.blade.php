@@ -538,7 +538,7 @@
                                     <label class="col-sm-2 col-form-label">{{ __('Supervisor comments') }}</label>
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('comments') ? ' has-danger' : '' }}">
-                                            <textarea placeholder="{{ __('comments') }}" name="comments" required="true" id="input-comments" cols="10" rows="5"
+                                            <textarea placeholder="{{ __(' To capture the comments on the progress of work, correction plan of the noted mistakes/ incomplete details/ any requirements on site/material shortage etc……') }}" name="comments" required="true" id="input-comments" cols="10" rows="5"
                                                       class="form-control{{ $errors->has('comments') ? ' is-invalid' : '' }}" >{{$report->comments}}</textarea>
 
                                             @if ($errors->has('comments'))

@@ -75,24 +75,11 @@
 
 
 
-                                {{--<div class="row">--}}
-                                    {{--<label class="col-sm-2 col-form-label">{{ __('Personnel on Site') }}</label>--}}
-                                    {{--<div class="col-sm-7">--}}
-                                        {{--<div class="form-group{{ $errors->has('personnel') ? ' has-danger' : '' }}">--}}
-                                            {{--<select multiple name="personnel[]" id="personnel" class="form-control input-lg dynamic"--}}
-                                                    {{--data-dependent="personnel">--}}
-                                                {{--<option value="">Select personnel</option>--}}
-                                                {{--@foreach ($personnels as $key => $value)--}}
-                                                    {{--<option value="{{ $key }}">{{ $value }}</option>--}}
-                                                {{--@endforeach--}}
-                                            {{--</select>--}}
-                                        {{--</div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
+
                             </div>
 
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" id="add_project" class="btn btn-primary">{{ __('Add Installer') }}</button>
+                                <button type="submit" id="add_project" class="btn btn-primary">{{ __('Add Project') }}</button>
                             </div>
                         </div>
                     </form>
@@ -115,10 +102,11 @@
                         dataType : "json",
                         success:function(data)
                         {
-                            console.log(data);
+
                             jQuery('select[name="area"]').empty();
                             jQuery.each(data, function(key,value){
-                                $('select[name="area"]').append('<option value="'+ key +'">'+ value +'</option>');
+                                console.log(key);
+                                $('select[name="area"]').append('<option value="'+ value +'">'+ value +'</option>');
                             });
                         }
                     });
