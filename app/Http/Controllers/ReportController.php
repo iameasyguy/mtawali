@@ -93,6 +93,13 @@ class ReportController extends Controller
             $data['personnel']=implode(",",$request->personnel);
         }
 
+        if($request->has('status')){
+            $data['status']='on';
+        }else{
+            $data['status']='off';
+            Project::whereId($request->project_id)->update(['status'=>1]);
+        }
+
         $data['filename']=implode(",",$pic);
         $data['inspected_by']=auth()->user()->name;
         $data['prepared_by']=auth()->user()->name;
@@ -189,10 +196,17 @@ class ReportController extends Controller
         if($request->has('personnel')){
             $data['personnel']=implode(",",$request->personnel);
         }
+        if($request->has('status')){
+            $data['status']='on';
+        }else{
+            $data['status']='off';
+            Project::whereId($report->project_id)->update(['status'=>1]);
+        }
 
         $data['inspected_by']=auth()->user()->name;
         $data['prepared_by']=auth()->user()->name;
         $data['confirmed_by']=$request->installer;
+//        return $data;
         Report::whereId($report->id)->update($data);
         return redirect()->route('reports.index')->withStatus(__('Report successfully updated.'));
     }
