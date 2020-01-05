@@ -21,6 +21,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $clients = \App\Client::all()->count();
+        $reports = \App\Report::all()->count();
+        $project =\App\Project::all()->count();
+        return view('dashboard',compact('clients','project','reports'));
     }
 }
