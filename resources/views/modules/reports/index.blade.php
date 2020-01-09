@@ -92,7 +92,7 @@
                                                     {{ $project->installer }}
                                                 </td>
                                                 <td>
-                                                    {{ $project->status }}
+
                                                     @if($project->status=='on')
                                                         <span class="badge badge-pill badge-danger">On going</span>
                                                     @else
