@@ -77,18 +77,32 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UserRequest $request, User  $user)
+    public function update(Request $request, $id)
     {
-        $hasPassword = $request->get('password');
-//        $user->update(
-//            $request->merge(['password' => Hash::make($request->get('password'))])
-//                ->except([$hasPassword ? '' : 'password']
-//        ));
-        $user->fill($request->except('roles','permissions','password'));
-        if($hasPassword){
-            $user->password = Hash::make($hasPassword);
+
+        $this->validate($request, [
+            'name' => 'bail|required|min:2',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'nullable|min:6|confirmed',
+            'roles' => 'required|min:1'
+        ]);
+
+//         Get the user
+        $user = User::findOrFail($id);
+
+        // Update user
+        $user->fill($request->except('roles', 'permissions', 'password'));
+
+        // check for password change
+        if($request->get('password')) {
+            $user->password = bcrypt($request->get('password'));
         }
-        $this->syncPermissions($request,$user);
+
+        // Handle the user roles
+        $this->syncPermissions($request, $user);
+
+        $user->save();
+
         return redirect()->route('users.index')->withStatus(__('User successfully updated.'));
     }
 
