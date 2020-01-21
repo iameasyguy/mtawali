@@ -58,7 +58,7 @@ class ClientController extends Controller
 
         );
         $validator = Validator::make($request->all(), $rules);
-
+//
 
         if ($validator->fails())
         {
@@ -71,8 +71,8 @@ class ClientController extends Controller
         $data = request()->except(['_token','_method']);
         $data['username']=auth()->user()->name;
         Client::create($data);
-
-        return response()->json(array('success' => true,'message' => 'Client added'), 200);
+//return response()->json($data);
+        return response()->json(array('success' => true,'message' => 'Client added'), 200)->redirect()->route('clients.index')->withStatus(__('Client successfully created.'));
     }
 
     /**

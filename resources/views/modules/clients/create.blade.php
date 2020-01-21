@@ -196,13 +196,18 @@
                     url: ajaxurl,
                     data: formData,
                     success: function (data) {
+                        console.log(data);
                         jQuery.each(data.errors, function(key, value){
                             jQuery('.alert-danger').show();
                             jQuery('.alert-danger').append('<p>'+value+'</p>');
                             console.log(value);
+                            console.log(key);
                         });
-                        window.location.href ='{{route('clients.index')}}';
 
+
+                    },
+                    complete:function (event, request, settings) {
+                        window.location.href ='{{route('clients.index')}}';
                     }
                 });
 
